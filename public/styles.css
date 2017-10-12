@@ -7,40 +7,28 @@ body {
     font-family: "Ariel", sans-serif;
 }
 
+
 /* ======= ======= ======= sections ======= ======= ======= */
-.section {
-    margin: 20px auto;
-    padding: 10px;
-    width: 80%;
-    border: 2px solid purple;
-    box-sizing: border-box;
-}
-#header {
-    background-color: #eee;
-}
-#header > h1 {
-    margin: 10px;
-    text-align: center;
-}
-#menu-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    height: 80px;
-}
 #yield-container {
     min-height: 360px;
     text-align: center;
-    background-color: moccasin;
-    border: 2px solid darkorange;
+    /*background-color: moccasin;*/
+    /*border: 2px solid darkorange;*/
 }
 #footer {
     background-color: #eee;
 }
+#name {
+  width: 10px;
+}
+#type {
+  width: 10px;
+}
+#say {
 
+}
 /* ======= ======= ======= menu ======= ======= ======= */
-.menu-item {
+/*.menu-item {
     width: 120px;
     height: 40px;
     margin: 10px;
@@ -60,7 +48,7 @@ body {
 }
 .menu-item:hover > a {
     color: darkorange;
-}
+}*/*/
 
 /* ======= ======= ======= forms ======= ======= ======= */
 #form-box {

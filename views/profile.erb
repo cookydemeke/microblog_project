@@ -1,14 +1,16 @@
 
-<h1> Profile </h1>
+<h1> Welcome </h1>
 
 
 <div class="menu-item"><a href="/edit_user_form?id=<%= @user[:id] %>">Edit User</a></div>
 <div class="menu-item"><a href="/delete_user?id=<%= @user[:id] %>">Delete User</a></div>
 
 
-<p> <%= @user[:username] %> </p>
-<p> <%= @user[:password] %> </p>
+<div id="name"> <%= @user[:username] %> </div>
+<!-- <p> <%= @user[:password] %> </p>
 <p> <%= @user[:firstname] %> </p>
 <p> <%= @user[:lastname] %> </p>
-<p> <%= @user[:email] %> </p>
-<p> <%= @user[:usertype] %> </p>
+<p> <%= @user[:email] %> </p> -->
+<div id="type"> <%= @user[:usertype] %> </div>
+<input type="text" name="post" value="" placeholder="Rant and Click">
+<input type="Submit" value="Click">
