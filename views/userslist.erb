@@ -1,0 +1,9 @@
+<h1> Current Users </h1>
+<% @users.each do |item| %>
+
+  <p><a href= "/profile?id=<%= item[:id] %>">
+  <%= item[:firstname].to_s + " " + item[:lastname].to_s %> </a></p>
+
+  <%  puts "item: #{item.inspect}"  %>
+
+<% end %>
