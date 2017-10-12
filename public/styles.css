@@ -10,7 +10,7 @@ body {
 
 /* ======= ======= ======= sections ======= ======= ======= */
 #yield-container {
-    min-height: 360px;
+    min-height: 500px;
     text-align: center;
     /*background-color: moccasin;*/
     /*border: 2px solid darkorange;*/
@@ -20,13 +20,16 @@ body {
 }
 #name {
   width: 10px;
+  margin-left: 1px;
 }
 #type {
   width: 10px;
 }
-#say {
-
+.menu-item {
+  width: 70px;
+  margin-right: 1000px;
 }
+
 /* ======= ======= ======= menu ======= ======= ======= */
 /*.menu-item {
     width: 120px;
