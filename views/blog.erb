@@ -1,0 +1,16 @@
+<div class="menu-item"><a href="/profile?id=<%= @user[:id] %>">Profile</a></div>
+<div class="menu-item"><a href="/blog?id=<%= @user[:id] %>">Blog</a></div>
+
+
+
+<!-- <div id="name"> <%= @user[:username] %> </div> -->
+<div id="qstn"> <%= params[:question] %>
+  <form method="post" action="/blog">
+    <!-- <input type="text" name="question" value="" style="width: 700px; height=700px"> -->
+    <input type="submit" value="Answer">
+  </form>
+</div>
+
+<% @questions.each do |q| %>
+<p> <%= q.question %> </p>
+<% end %>

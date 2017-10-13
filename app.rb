@@ -103,7 +103,7 @@ end
 
 # ======= signout =======
 get '/signout' do
-	puts "\n******* signout *******"
+	puts "\n******* Get: signout *******"
 	erb :home
 end
 
@@ -150,14 +150,46 @@ get "/profile" do
 	erb :profile
 end
 
+get "/blog" do
+	puts "\n******* GET: blog:ID *******"
+	puts "params: #{params.inspect}"
+	@user = User.find(params[:id])
+	erb :blog
+end
 
-# get "/user_form" do
-# 	puts "\n******* GET: user_form *******"
+post '/blog' do
+	puts "\n******* post: blog *******"
+	puts "params: #{params.inspect}"
+	puts "session[:user_id]: #{session[:user_id].inspect}"
+	@user = User.find(session[:user_id])
+	puts "@user: #{@user.inspect}"
+	Question.create(
+		question: params[:question],
+		user_id: session[:user_id]
+	)
+	@questions = Question.all
+	puts "@questions: #{@questions.inspect}"
+	erb :blog
+end
+
+
+# get "/profile" do
+# 	puts "\n******* GET: profile *******"
 # 	puts "params: #{params.inspect}"
-# 	@user = User.find(2).destroyAssociations
-# 	erb :
+# 	if @user
+# 		if params[:password] == @user[:password]
+# 			session[:user_id] = @user[:id]
+# 			puts "session[:user_id]: #{session[:user_id].inspect}"
+# 			erb :profile
+# 		else
+# 			erb :signin_form
+# 		end
+# 	else
+# 			erb :signup_form
+#   end
+# 	erb :blog
 # end
-
+#
 # post '/signup' do
 # 	puts "\n******* POST: signup *******"
 #   puts "params: #{params.inspect}"

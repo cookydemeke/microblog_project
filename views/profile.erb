@@ -5,13 +5,20 @@
 <div class="menu-item"><a href="/edit_user_form?id=<%= @user[:id] %>">Edit User</a></div>
 <div class="menu-item"><a href="/delete_user?id=<%= @user[:id] %>">Delete User</a></div>
 
+<div class="menu-item"><a href="/profile?id=<%= @user[:id] %>">Profile</a></div>
+<div class="menu-item"><a href="/blog?id=<%= @user[:id] %>">Blog</a></div>
+
 
 <div id="name"> <%= @user[:username] %> </div>
-<!-- <p> <%= @user[:password] %> </p>
-<p> <%= @user[:firstname] %> </p>
-<p> <%= @user[:lastname] %> </p>
-<p> <%= @user[:email] %> </p> -->
-<!-- <div id="type"> <%= @user[:usertype] %> </div> -->
+<div class="userinfo"> <%= @user[:password] %> </div>
+<div class="userinfo"> <%= @user[:firstname] %> </div>
+<div class="userinfo"> <%= @user[:lastname] %> </div>
+<div class="userinfo"> <%= @user[:email] %> </div>
+<div class="userinfo"> <%= @user[:usertype] %> </div>
 
-<input type="text" name="post" value="" placeholder="Rant and Click" style="width: 700px; height=700px">
-<input type="Submit" value="Click" style="background-color: #2d55ff; width: 100px">
+<div id="question">
+  <form method="post" action="/blog">
+    <input type="text" name="question" value="" placeholder="What's wrong with your car?" style="width: 700px; height=700px">
+    <input type="submit" value="Ask" style="width: 100px">
+  </form>
+</div>

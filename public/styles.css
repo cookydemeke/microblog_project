@@ -3,33 +3,57 @@ html, body {
     height: 100%;
     box-sizing: content-box;
 }
-body {
-  margin: 0;
-  padding: 0;
-/*  Background fallback in case of IE8 & down, or in case video doens't load, such as with slower connections  */
-  /*background: #333;*/
-  background-attachment: fixed;
-  background-size: cover;
-  background-position: left;
+* {
+  margin: 0px;
+  padding: 0px;
 }
-
+body {
+  background-color: #f0f0f0;
+  font-size: 14px;
+}
+#header {
+  background-color: #cccccc;
+  height: 80px;
+  width: 100%;
+  margin-bottom: 10px;
+}
+.form-box {
+  margin-top: 200px;
+}
 /* ======= ======= ======= sections ======= ======= ======= */
 #yield-container {
     min-height: 500px;
     text-align: center;
-    /*background-color: moccasin;*/
-    /*border: 2px solid darkorange;*/
 }
 #footer {
-    background-color: #eee;
+    background-color: #ee;
+}
+#logo {
+  text-shadow: 1px 1px 1px #eeeeee;
+  color: #ffffff;
+  font-size: 36px;
+  text-align: center;
 }
 #name {
   width: 10px;
   margin-left: 20px;
+  margin-top: 10px;
 }
 .menu-item {
   width: 70px;
   margin-right: 1100px;
+  background-color: white;
+  margin-top: 10px;
+}
+.userinfo {
+  width: 10px;
+  margin-left: 20px;
+  visibility: hidden;
+}
+#qstn {
+  background-color: white;
+  width: 700px;
+  margin-left: 400px;
 }
 /* ======= ======= ======= menu ======= ======= ======= */
 /*.menu-item {
@@ -52,7 +76,7 @@ body {
 }
 .menu-item:hover > a {
     color: darkorange;
-}*/*/
+}*/
 
 /* ======= ======= ======= forms ======= ======= ======= */
 #form-box {
