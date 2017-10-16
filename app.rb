@@ -169,6 +169,12 @@ post '/blog' do
 	)
 	@questions = Question.all
 	puts "@questions: #{@questions.inspect}"
+	@users_array = []
+	@questions.each_with_index do |question, index|
+		user_id = question[:user_id] 
+		user = User.find(user_id)
+		@users_array.push(user)
+	end
 	erb :blog
 end
 

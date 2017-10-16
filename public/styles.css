@@ -31,20 +31,44 @@ body {
 #logo {
   text-shadow: 1px 1px 1px #eeeeee;
   color: #ffffff;
-  font-size: 36px;
+  font-size: 70px;
   text-align: center;
 }
 #name {
   width: 10px;
   margin-left: 20px;
   margin-top: 10px;
+  font-size: 25px;
 }
-.menu-item {
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #111;
+}
+/*.menu-item {
   width: 70px;
   margin-right: 1100px;
   background-color: white;
   margin-top: 10px;
-}
+}*/
 .userinfo {
   width: 10px;
   margin-left: 20px;
@@ -54,6 +78,12 @@ body {
   background-color: white;
   width: 700px;
   margin-left: 400px;
+}
+#asker {
+  margin-left: 400px;
+  color: black;
+  width: 75px;
+  font-size: 25px;
 }
 /* ======= ======= ======= menu ======= ======= ======= */
 /*.menu-item {
@@ -83,4 +113,10 @@ body {
     width: 80%;
     height: 60%;
     background-color: thistle;
+}
+#footer {
+  background-color: #cccccc;
+  height: 40px;
+  width: 100%;
+  margin-top: 400px;
 }
