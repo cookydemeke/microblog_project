@@ -1,18 +1,16 @@
-<div class="menu-item"><a href="/profile?id=<%= @user[:id] %>">Profile</a></div>
-<div class="menu-item"><a href="/blog?id=<%= @user[:id] %>">Blog</a></div>
+<ul class="menu-item">
+  <li><a href="/edit_user_form?id=<%= @user[:id] %>">Edit User</a></li>
+  <li><a href="/delete_user?id=<%= @user[:id] %>">Delete User</a></li>
+
+  <li><a href="/profile?id=<%= @user[:id] %>">Profile</a></li>
+  <li><a href="/blog?id=<%= @user[:id] %>">Blog</a></li>
+  <li><a href="/signup?id=<%= @user[:id] %>">Sign Out</a></li>
+</ul>
 
 
-
-<!-- <div id="name"> <%= @user[:username] %> </div> -->
-<div id="qstn"> <%= params[:question] %>
-  <form method="post" action="/blog">
-    <!-- <input type="text" name="question" value="" style="width: 700px; height=700px"> -->
-    <input type="submit" value="Answer">
-  </form>
-</div>
-
-<% @questions.each do |q| %>
-<p> <%= q.question %> </p>
+<% @questions.each_with_index do |q, index| %>
+  <div id="asker"> <%= @users_array[index][:username] %> </div>
+  <p style="background-color: white; width: 700px; margin-left: 400px; margin-top: 50px"> <%= q.question %> </p>
 <% end %>
 
 <div id="answer">
