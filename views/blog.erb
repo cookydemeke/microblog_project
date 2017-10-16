@@ -14,3 +14,16 @@
 <% @questions.each do |q| %>
 <p> <%= q.question %> </p>
 <% end %>
+
+<div id="answer">
+  <form method="post" action="/blog">
+    <input type="text" name="answer" value="" placeholder="I am going to tell you what is wrong with your car?" style="width: 700px; height=700px">
+    <input type="submit" value="Answer" style="width: 100px">
+  </form>
+</div>
+
+<!-- ========= need a loop for the answers which means you need a migrate file also
+rake db:create_migration NAME=create_answers_table -->
+<!-- # <% @answers.each do |a| %>
+# <p> <%= a.answer %> </p>
+# <% end %> -->

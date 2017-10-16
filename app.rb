@@ -4,7 +4,7 @@
 
 # ======= requires =======
 require "sinatra"
-require "sinatra/reloader"
+# require "sinatra/reloader"
 require 'sinatra/activerecord'
 
 # ======= models =======
