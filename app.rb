@@ -4,7 +4,7 @@
 
 # ======= requires =======
 require "sinatra"
-# require "sinatra/reloader"
+require "sinatra/reloader"
 require 'sinatra/activerecord'
 
 # ======= models =======
@@ -103,7 +103,9 @@ end
 
 # ======= signout =======
 get '/signout' do
-	puts "\n******* Get: signout *******"
+	# puts "\n******* Get: signout *******"
+	# @user = User.where(:username => params[:username]).first
+	session[:user_id] = nil
 	erb :home
 end
 
@@ -150,10 +152,18 @@ get "/profile" do
 	erb :profile
 end
 
-get "/blog" do
+get '/blog' do
 	puts "\n******* GET: blog:ID *******"
 	puts "params: #{params.inspect}"
 	@user = User.find(params[:id])
+	@questions = Question.all
+	puts "@questions: #{@questions.inspect}"
+	@users_array = []
+	@questions.each_with_index do |question, index|
+		user_id = question[:user_id]
+		user = User.find(user_id)
+		@users_array.push(user)
+	end
 	erb :blog
 end
 
@@ -167,39 +177,50 @@ post '/blog' do
 		question: params[:question],
 		user_id: session[:user_id]
 	)
+	Answer.create(
+		answers: params[:answer],
+		user_id: session[:user_id],
+		question_id: params[:question_id]
+	)
 	@questions = Question.all
 	puts "@questions: #{@questions.inspect}"
 	@users_array = []
+	@answers_array = []
 	@questions.each_with_index do |question, index|
-		user_id = question[:user_id] 
+		user_id = question[:user_id]
 		user = User.find(user_id)
 		@users_array.push(user)
+		answers = Answer.where(:question_id => question[:id])
+		puts "answers.length: #{answers.length.inspect}"
+  	@answers_array.push(answers)
+
 	end
+
 	erb :blog
 end
 
-
-# get "/profile" do
-# 	puts "\n******* GET: profile *******"
+# post '/new_answer' do
+# 	puts "\n******* post: new_answer *******"
 # 	puts "params: #{params.inspect}"
-# 	if @user
-# 		if params[:password] == @user[:password]
-# 			session[:user_id] = @user[:id]
-# 			puts "session[:user_id]: #{session[:user_id].inspect}"
-# 			erb :profile
-# 		else
-# 			erb :signin_form
-# 		end
-# 	else
-# 			erb :signup_form
-#   end
-# 	erb :blog
-# end
+# 	puts "session[:user_id]: #{session[:user_id].inspect}"
+# 	@user = User.find(session[:user_id])
+# 	puts "@user: #{@user.inspect}"
+# 	Answer.create(
+# 		answers: params[:answer],
+# 		user_id: session[:user_id],
+# 		question_id: params[:question_id]
+# 	)
+# 	@answers = Answer.all
+# 	puts "@answers: #{@answers.inspect}"
+# 	@users_array = []
+# 	@answers_array = []
+# 	@answers.each_with_index do |answer, index|
+# 		user_id = answer[:user_id]
+# 		user = User.find(user_id)
+# 		@users_array.push(user)
+# 		answers = Answer.where(:answers_id => answers[:id])
+# 		puts "answers.length: #{answers.length.inspect}"
+# 		@answers_array.push(answers)
 #
-# post '/signup' do
-# 	puts "\n******* POST: signup *******"
-#   puts "params: #{params.inspect}"
-#   User.create(params)
-#   @user = User.order("created_at").last
-#   erb :profile
+#  	erb :blog
 # end

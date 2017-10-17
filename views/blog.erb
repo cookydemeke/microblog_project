@@ -4,24 +4,27 @@
 
   <li><a href="/profile?id=<%= @user[:id] %>">Profile</a></li>
   <li><a href="/blog?id=<%= @user[:id] %>">Blog</a></li>
-  <li><a href="/signup?id=<%= @user[:id] %>">Sign Out</a></li>
+  <li><a href="/signout?id=<%= @user[:id] %>">Sign Out</a></li>
 </ul>
 
 
 <% @questions.each_with_index do |q, index| %>
   <div id="asker"> <%= @users_array[index][:username] %> </div>
   <p style="background-color: white; width: 700px; margin-left: 400px; margin-top: 50px"> <%= q.question %> </p>
+
+  <% answer_array = @answers_array[index] %>
+  <% answer_array.each do |answer| %>
+    <p> <%= answer[:answers] %> </p>
+  <% end %>
+
+
+
+  <div id="answer">
+    <form method="post" action="/blog">
+      <input type="hidden" name="question_id" value="<%= q[:id] %>">
+      <input type="text" name="answer" value="" placeholder="Here's what to do..." style="width: 700px; height: 35px">
+      <input type="submit" value="Answer" style="width: 100px">
+    </form>
+  </div>
+
 <% end %>
-
-<div id="answer">
-  <form method="post" action="/blog">
-    <input type="text" name="answer" value="" placeholder="I am going to tell you what is wrong with your car?" style="width: 700px; height=700px">
-    <input type="submit" value="Answer" style="width: 100px">
-  </form>
-</div>
-
-<!-- ========= need a loop for the answers which means you need a migrate file also
-rake db:create_migration NAME=create_answers_table -->
-<!-- # <% @answers.each do |a| %>
-# <p> <%= a.answer %> </p>
-# <% end %> -->
