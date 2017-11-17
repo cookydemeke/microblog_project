@@ -1,22 +1,11 @@
-<ul class="menu-item">
-  <li><a href="/edit_user_form?id=<%= @user[:id] %>">Edit User</a></li>
-  <li><a href="/delete_user?id=<%= @user[:id] %>">Delete User</a></li>
-
-  <li><a href="/profile?id=<%= @user[:id] %>">Profile</a></li>
-  <li><a href="/blog?id=<%= @user[:id] %>">Blog</a></li>
-  <li><a href="/signout?id=<%= @user[:id] %>">Sign Out</a></li>
-</ul>
-
-
 <% @questions.each_with_index do |q, index| %>
+  <% answers = Answer.where(:question_id => q[:id]) %>
+
   <div id="asker"> <%= @users_array[index][:username] %> </div>
   <p style="background-color: white; width: 700px; margin-left: 400px; margin-top: 50px"> <%= q.question %> </p>
-
-  <% answer_array = @answers_array[index] %>
-  <% answer_array.each do |answer| %>
+  <% answers.each do |answer| %>
     <p> <%= answer[:answers] %> </p>
   <% end %>
-
 
 
   <div id="answer">

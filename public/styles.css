@@ -72,7 +72,7 @@ li a:hover {
 .userinfo {
   width: 10px;
   margin-left: 20px;
-  visibility: hidden;
+  visibility: visible;
 }
 #qstn {
   background-color: white;

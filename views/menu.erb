@@ -5,3 +5,14 @@
 <div class="menu-item"><a href="/signin_form">Sign In</a></div>
 <div class="menu-item"><a href="/signout">Sign Out</a></div>
 <div class="menu-item"><a href="/userslist">Users</a></div> -->
+<ul class="menu-item">
+  <li><a href="/signup_form">Sign Up</a></li>
+  <% if @user %>
+    <li><a href="/edit_user_form?id= <%= @user[:id] %>" >Edit User</a></li>
+    <li><a href="/delete_user?id=<%= @user[:id] %>">Delete User</a></li>
+
+    <li><a href="/profile?id=<%= @user[:id] %>">Profile</a></li>
+    <li><a href="/blog?id=<%= @user[:id] %>">Blog</a></li>
+    <li><a href="/signout?id=<%= @user[:id] %>">Sign Out</a></li>
+  <% end %>
+</ul>
